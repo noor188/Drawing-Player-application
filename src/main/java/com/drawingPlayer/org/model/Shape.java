@@ -8,14 +8,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Entity
-@Table(name = "Shapes")
+@Inheritance(strategy = InheritanceType.JOINED)
 @Data
-@AllArgsConstructor
 public abstract class Shape {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     final Color PLAYING_COLOR;
     private int x;
     private int y;
