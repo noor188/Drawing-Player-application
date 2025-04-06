@@ -42,6 +42,6 @@ public abstract class Shape {
         this.selected = selected;
         this.instrument = instrument;
         this.playLineCord = playLineCord;
-        PLAYING_COLOR = new Color(230, 158, 60);
+        this.PLAYING_COLOR = new Color(230, 158, 60);
     }
 }
