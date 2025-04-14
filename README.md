@@ -18,3 +18,7 @@ An interactive full-stack application where users select shapes, draw them on a 
 + Backend: Java, Spring Boot
 + Tools: Maven, IntelliJ, Github
 
+## Screenshots (Coming soon ....)
+
+![Home](https://github.com/noor188/Drawing-Player-application/blob/main/image/project-layout.png)
+
