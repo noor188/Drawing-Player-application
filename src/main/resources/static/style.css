@@ -7,31 +7,34 @@
 
 .container{
     max-width: 95%;
-    margin: 0 auto;
-    padding: 20px;
+    margin: 0;
+    padding: 0;
+    border: none;
 }
 
 h1{
     text-align: center;
     color: #ffffff;
-    margin-bottom: 40px;
-    margin-top: 5px;
+    margin: 0;
+    padding: 0;
 }
 
 .game-grid{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 50px;
+    justify-content: flex-start;
+    padding: 0;
+    margin: 0;
 }
 
 .canvas{
-    width: 75%;
-    height: 100%;
     background-color: #1e1e1e;
     border-radius: 8px;
     /*padding: 20px;*/
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    margin: 0;
+    padding: 0;
+    border: none;
 }
 
 .shapes{
@@ -44,7 +47,7 @@ h1{
 .shape img{
     width: 70%;
     padding: 10px;
-    margin: 0 auto;
+    margin: 0;
     display: block;
     /*transition: color 0.7s ease, text-shadow 0.7s ease-in-out, box-shadow 0.7s ease-in-out;*/
 }

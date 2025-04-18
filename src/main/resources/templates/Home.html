@@ -12,17 +12,17 @@
 <div class="container">
     <h1>Drawing Player</h1>
     <div class="game-grid">
-        <div class="shapes">
-            <div class="shape">
-                <img src="../image/oval.jpg" alt="oval">
+        <canvas id="myCanvas" class="canvas" height="400" width="800"></canvas>
+        <div class="shapes" >
+            <div>
+                <img src="../image/oval.jpg" alt="oval" width="200">
             </div>
-            <button class="shape" onclick="">
-                <img src="../image/rectangle.png" alt="rectangle">
-            </button>
+<!--            <button class="shape" onclick="">-->
+<!--                <img src="../image/rectangle.png" alt="rectangle" width="200">-->
+<!--            </button>-->
             <button class="play-button">Play</button>
             <button class="play-button" onclick="clearCanvas()">Clear</button>
         </div>
-        <canvas id="myCanvas" class="canvas"></canvas>
     </div>
 </div>
 <script src="../js/script.js"></script>
