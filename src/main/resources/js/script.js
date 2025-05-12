@@ -7,4 +7,3 @@ canvas.height = canvas.offsetHeight;
 
 let ctx = canvas.getContext('2d');
 
-
