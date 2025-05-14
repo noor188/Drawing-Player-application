@@ -11,7 +11,7 @@ import java.util.List;
 public class User {
 
     @Id
-    private int userID;
+    private Integer userID;
 
     private String userName;
 

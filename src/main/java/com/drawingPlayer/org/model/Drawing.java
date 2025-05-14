@@ -21,7 +21,7 @@ public class Drawing {
     private Integer id;
     private final int MUSIC_LINES_SPACE;
     private int playLineColumn;
-    private MidiSynth midiSynth;
+//    private MidiSynth midiSynth;
 
     @OneToMany(mappedBy = "drawing", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Oval> ovals;
