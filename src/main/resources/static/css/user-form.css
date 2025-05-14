@@ -1,0 +1,22 @@
+.dark-theme{
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: 'Arial', sans-serif;
+}
+
+.container{
+    max-width: 80%;
+    margin: 10px;
+    padding: 10px;
+}
+
+h1{
+    color: #ffffff;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.user-form{
+    width: 25%;
+
+}
