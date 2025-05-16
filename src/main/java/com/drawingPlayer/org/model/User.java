@@ -11,6 +11,7 @@ import java.util.List;
 public class User {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer userID;
 
     private String userName;
@@ -23,4 +24,27 @@ public class User {
         this.userName = null;
     }
 
+    public Integer getUserID() {
+        return userID;
+    }
+
+    public void setUserID(Integer userID) {
+        this.userID = userID;
+    }
+
+    public List<Drawing> getDrawings() {
+        return drawings;
+    }
+
+    public void setDrawings(List<Drawing> drawings) {
+        this.drawings = drawings;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 }
