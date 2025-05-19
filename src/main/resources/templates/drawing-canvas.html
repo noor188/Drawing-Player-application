@@ -9,29 +9,29 @@
     <title>Canvas</title>
 </head>
 <body class="dark-theme">
-<main>
-    <div class="container">
-        <h1>Drawing Player</h1>
-        <p>Welcome <span th:text="${user.userName}"></span></p>
-        <div class="game-grid">
-            <!--                <div id="canvas">canvas</div>-->
-            <div class="shapes" >
-                <select>
-                    <option th:each="drawing : ${drawings}" th:value="${drawing.id}"></option>
-                </select>
-                <div>
-                    <img th:src="@{/image/oval.jpg}" alt="oval" width="200">
+    <main>
+        <div class="container">
+            <h1>Drawing Player</h1>
+            <p>Welcome <span th:text="${user.userName}"></span></p>
+            <div class="game-grid">
+                <!--                <div id="canvas">canvas</div>-->
+                <div class="shapes" >
+                    <select>
+                        <option th:each="drawing : ${drawings}" th:value="${drawing.id}"></option>
+                    </select>
+                    <button class="shape" onclick="pick_oval()">
+                        <img th:src="@{/image/oval.jpg}" alt="oval" width="200">
+                    </button>
+                    <button class="shape" onclick="pick_rectangle()">
+                        <img th:src="@{/image/rectangle.png}" alt="rectangle" width="200">
+                    </button>
+                    <button class="play-button" onclick="pick_oval()">Play</button>
+                    <button class="play-button" onclick="clearCanvas()">Clear</button>
                 </div>
-                <button class="shape" onclick="">
-                    <img th:src="@{/image/rectangle.png}" alt="rectangle" width="200">
-                </button>
-                <button class="play-button">Play</button>
-                <button class="play-button" onclick="clearCanvas()">Clear</button>
             </div>
+            <canvas id="myCanvas"></canvas>
         </div>
-        <canvas id="myCanvas"></canvas>
-    </div>
-</main>
-<script src="../js/script.js"></script>
+    </main>
+<script th:src="@{/js/script.js}"></script>
 </body>
 </html>
