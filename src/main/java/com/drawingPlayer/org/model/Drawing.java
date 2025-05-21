@@ -24,6 +24,9 @@ public class Drawing {
 //    private MidiSynth midiSynth;
 
     @OneToMany(mappedBy = "drawing", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Shape> shapes;
+
+    @OneToMany(mappedBy = "drawing", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Oval> ovals;
 
     @OneToMany(mappedBy = "drawing", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
