@@ -41,4 +41,14 @@ public class Drawing {
         this.ovals = new ArrayList<Oval>();
         this.rectangles = new ArrayList<Rectangle>();
     }
+
+    // EFFECTS: returns all Shapes at given column corresponding to an x-coordinate
+    public List<Shape> getShapesAtColumn(int x) {
+        List<Shape> shapesAtColumn = new ArrayList<Shape>();
+        for (Shape shape : shapes) {
+            if (shape.containsX(x))
+                shapesAtColumn.add(shape);
+        }
+        return shapesAtColumn;
+    }
 }

@@ -54,6 +54,7 @@ const clearCanvas = () =>{
 
 const play_music = () => {
     console.log(shapesList);
+    console.log("width", canvas.width);
     sendShapesToBackend(shapesList);
 }
 
@@ -61,13 +62,16 @@ function  addShape(shape){
     shapesList.push(shape);
 }
 
-function sendShapesToBackend(shapes){
+function sendShapesToBackend(currentShapes){
     fetch('/user/playmusic', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(shapes)
+        body: JSON.stringify({
+            shapes: currentShapes,
+            canvasWidth: canvas.width
+        })
     })
     .then(response => response.json())
     .then(data => {
