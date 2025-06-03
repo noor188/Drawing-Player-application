@@ -64,4 +64,50 @@ public abstract class Shape {
         this.type = type;
         PLAYING_COLOR = new Color(230, 158, 60);
     }
+
+    // EFFECTS: return true iff the given x value is within the bounds of the Shape
+    public boolean containsX(int x){
+        return (this.x <= x) && (x <= this.x + width);
+    }
+
+    // MODIFIES: this
+    // EFFECTS:  selects this Shape, plays associated sound
+    public void selectAndPlay(MidiSynth midiSynth) {
+        if (!selected) {
+            selected = true;
+            play(midiSynth);
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS:  unselects this Shape, stops playing associated sound
+    public void unselectAndStopPlaying(MidiSynth midiSynth) {
+        if (selected) {
+            selected = false;
+            stopPlaying(midiSynth);
+        }
+    }
+
+    // EFFECTS: starts playing this Shape, where sound is dependent on the area/coordinates of the Shape
+    private void play(MidiSynth midiSynth){
+        int volume = areaToVelocity(width * height);
+        midiSynth.play(instrument, coordToNote(y), volume);
+    }
+
+    // EFFECTS: stops playing this Shape
+    private void stopPlaying(MidiSynth midiSynth){
+        midiSynth.stop(instrument, coordToNote(y));
+    }
+
+    // EFFECTS: return a velocity based on the area of a Shape
+    //          The only meaningful velocities are between 0 and 127
+    //          Velocities less than 60 are too quiet to be heard
+    private int areaToVelocity(int area) {
+        return Math.max(60, Math.min(127, area / 30));
+    }
+
+    // EFFECTS: maps a given integer to a valid associated note
+    private int coordToNote(int y) {
+        return 70 - y / 12;
+    }
 }
