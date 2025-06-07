@@ -4,6 +4,7 @@ const canvas = document.getElementById('myCanvas');
 const play = document.getElementById('play-button');
 let shape = null;
 let shapesList = [];
+const userID = play.getAttribute('data-user-id');
 
 canvas.width = canvas.offsetWidth;
 canvas.height = canvas.offsetHeight;
@@ -53,7 +54,7 @@ const clearCanvas = () =>{
 }
 
 const play_music = () => {
-    console.log(shapesList);
+    console.log("userID", userID);
     console.log("width", canvas.width);
     sendShapesToBackend(shapesList);
 }
@@ -70,7 +71,8 @@ function sendShapesToBackend(currentShapes){
         },
         body: JSON.stringify({
             shapes: currentShapes,
-            canvasWidth: canvas.width
+            canvasWidth: canvas.width,
+            userID: userID
         })
     })
     .then(response => response.json())

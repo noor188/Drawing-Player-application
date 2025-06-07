@@ -17,7 +17,8 @@ import java.util.List;
 public class Drawing {
 
     @Id
-    @Column(name = "DrawingID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Column(name = "DrawingID")
     private Integer id;
     private final int MUSIC_LINES_SPACE;
     private int playLineColumn;

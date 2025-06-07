@@ -10,6 +10,7 @@ public class PlayRequest {
 
     private List<Shape> shapes;
     private int canvasWidth;
+    private Integer userID;
 
     public List<Shape> getShapes() {
         return shapes;
@@ -25,5 +26,13 @@ public class PlayRequest {
 
     public void setCanvasWidth(int canvasWidth) {
         this.canvasWidth = canvasWidth;
+    }
+
+    public Integer getUserID() {
+        return userID;
+    }
+
+    public void setUserID(Integer userID) {
+        this.userID = userID;
     }
 }
