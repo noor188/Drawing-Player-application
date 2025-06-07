@@ -15,19 +15,23 @@
             <p>Welcome <span th:text="${user.userName}"></span></p>
             <div class="game-grid">
                 <!--                <div id="canvas">canvas</div>-->
-                <div class="shapes" >
-                    <select>
-                        <option th:each="drawing : ${drawings}" th:value="${drawing.id}"></option>
-                    </select>
-                    <button class="shape" onclick="pick_oval()">
-                        <img th:src="@{/image/oval.jpg}" alt="oval" width="200">
-                    </button>
-                    <button class="shape" onclick="pick_rectangle()">
-                        <img th:src="@{/image/rectangle.png}" alt="rectangle" width="200">
-                    </button>
-                    <button class="play-button" id="play-button">Play</button>
-                    <button class="play-button" onclick="clearCanvas()">Clear</button>
+                <div class="buttons">
+<!--                    <select>-->
+<!--                        <option th:each="drawing : ${drawings}" th:value="${drawing.id}"></option>-->
+<!--                    </select>-->
+
+                        <button class="shape" onclick="pick_oval()">
+                            <img th:src="@{/image/oval.jpg}" alt="oval" width="200">
+                        </button>
+                        <button class="shape" onclick="pick_rectangle()">
+                            <img th:src="@{/image/rectangle.png}" alt="rectangle" width="200">
+                        </button>
+
+                        <button class="play-button" id="play-button" th:attr="data-user-id=${user.userID}">Play</button>
+                        <button class="play-button" onclick="clearCanvas()">Clear</button>
+
                 </div>
+
             </div>
             <canvas id="myCanvas"></canvas>
         </div>

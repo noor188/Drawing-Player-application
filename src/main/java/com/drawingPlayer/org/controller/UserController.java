@@ -15,12 +15,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.swing.*;
+import javax.swing.Timer;
 import java.awt.event.ActionListener;
 import java.security.Principal;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 @Controller
 @RequestMapping("/user")
@@ -52,23 +50,26 @@ public class UserController {
 
     @PostMapping("/save")
     public String saveUser(@ModelAttribute("user") User user){
-        userService.saveUser(user);
+        List<Drawing> drawings = new ArrayList<>();
+        Drawing drawing = new Drawing();
+        drawing.setUser(user);
+        drawings.add(drawing);
+        userService.saveUser(user, drawings);
         return "redirect:/user/home/" + user.getUserID();
     }
 
     @GetMapping("/new")
     public String UserCreationForm(Model model){
         User user = new User();
-        Drawing drawing = new Drawing();
         model.addAttribute("user", user);
-        model.addAttribute("drawing", drawing);
         return "user-form";
     }
 
     @PostMapping("/playmusic")
     public ResponseEntity<Map<String, String>> UserPlayDrawing(@RequestBody PlayRequest request){
         List<Shape> shapes = request.getShapes();
-        List<Drawing> drawings = user.get().getDrawings();
+        Integer userID = request.getUserID();
+        List<Drawing> drawings = userService.getAllDrawings(userID);
         drawings.get(0).setShapes(shapes);
         int canvasWidth = request.getCanvasWidth();
         Map<String, String> response = new HashMap<>();
